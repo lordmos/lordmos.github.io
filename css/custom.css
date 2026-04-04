@@ -84,7 +84,10 @@ a:hover { color: var(--primary-700); }
 /* ===== Hero / Masthead ===== */
 .masthead {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #1e293b 70%, #0f172a 100%);
-  padding: 7rem 0 4rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -284,21 +287,20 @@ section { padding: 5rem 0; }
   transform: translateY(-4px);
 }
 
-.project-card-img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
-}
-
-.project-card-img-placeholder {
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+.project-card-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.app-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
 }
 
 .project-card-body {
