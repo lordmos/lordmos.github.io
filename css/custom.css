@@ -84,12 +84,9 @@ a:hover { color: var(--primary-700); }
 /* ===== Hero / Masthead ===== */
 .masthead {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #1e293b 70%, #0f172a 100%);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  padding: 7rem 0 4rem;
   position: relative;
   overflow: hidden;
-  padding: 0;
 }
 
 .masthead::before {
@@ -249,39 +246,39 @@ section { padding: 5rem 0; }
 }
 
 .identity-card {
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.25rem;
   text-align: center;
-  min-width: 160px;
+  min-width: 140px;
   transition: var(--transition);
+  backdrop-filter: blur(8px);
 }
 
 .identity-card:hover {
-  border-color: var(--primary-400);
-  background: var(--primary-50);
+  background: rgba(99,102,241,.2);
+  border-color: rgba(129,140,248,.5);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
 }
 
 .identity-card .icon {
-  font-size: 1.8rem;
-  margin-bottom: .5rem;
+  font-size: 1.6rem;
+  margin-bottom: .4rem;
   display: block;
 }
 
 .identity-card .label {
   font-weight: 600;
-  font-size: .9rem;
-  color: var(--gray-700);
+  font-size: .85rem;
+  color: rgba(255,255,255,.9);
   display: block;
 }
 
 .identity-card .desc {
-  font-size: .78rem;
-  color: var(--gray-500);
-  margin-top: .2rem;
+  font-size: .75rem;
+  color: rgba(255,255,255,.5);
+  margin-top: .15rem;
 }
 
 /* ===== Projects Section ===== */
@@ -663,6 +660,7 @@ footer {
 /* ===== Responsive ===== */
 @media (max-width: 767px) {
   section { padding: 3.5rem 0; }
+  .masthead { padding: 6rem 0 3rem; }
 
   .miniprogram-card {
     flex-direction: column;
