@@ -1,345 +1,193 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="LordMOS — 独立开发者，iOS应用开发者，AI Agent爱好者" />
-    <meta name="author" content="LordMOS" />
-    <title>LordMOS - 独立开发者</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom Theme -->
-    <link href="css/custom.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LordMOS — 独立开发者，iOS应用、微信小程序、AI Agent" />
+  <title>LordMOS</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <link href="css/custom.css" rel="stylesheet" />
 </head>
+<body>
 
-<body id="page-top">
+  <!-- Navbar -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">LordMOS</a>
+      <ul class="nav-links">
+        <li><a href="#miniprogram">小程序</a></li>
+        <li><a href="#agents">Agent 项目</a></li>
+        <li><a href="#projects">iOS 应用</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- ===== Navigation ===== -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#page-top">Lord<span>MOS</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">关于我</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#miniprogram">小程序</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#agents">Agent 项目</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">iOS 应用</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/privacy">隐私政策</a></li>
-                </ul>
-            </div>
+  <!-- Hero -->
+  <section class="hero" id="about">
+    <h1 class="hero-name">LordMOS</h1>
+    <p class="hero-bio">
+      独立开发者。做过 iOS 应用、微信小程序，最近在 Vibe Coding AI Agent。<br>
+      创业未半而中道崩崩崩崩 🫠
+    </p>
+    <div class="hero-pills">
+      <span class="hero-pill">🛠️ 独立开发者</span>
+      <span class="hero-pill">📱 iOS 开发者</span>
+      <span class="hero-pill">🃏 TCG 爱好者</span>
+      <span class="hero-pill">🤖 AI Agent 菜鸟</span>
+      <span class="hero-pill">💬 内容运营</span>
+    </div>
+    <div class="hero-links">
+      <a class="hero-link" href="https://github.com/lordmos" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a class="hero-link" href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">
+        <i class="fab fa-zhihu"></i> 知乎
+      </a>
+      <a class="hero-link" href="https://space.bilibili.com/143360" target="_blank" rel="noopener">
+        <i class="fab fa-bilibili"></i> B站
+      </a>
+    </div>
+  </section>
+
+  <hr class="page-divider" />
+
+  <!-- Mini Program -->
+  <section class="page-section" id="miniprogram">
+    <p class="section-label">WeChat Mini Program</p>
+    <div class="mp-card">
+      <div class="mp-qr">
+        <img src="assets/img/ua-qrcode.png" alt="UA真选组小程序二维码" />
+      </div>
+      <div class="mp-body">
+        <span class="mp-tag"><i class="fab fa-weixin"></i> 微信小程序</span>
+        <div class="mp-title">UA 真选组</div>
+        <p class="mp-desc">
+          Union Arena 第三方卡片游戏社区。提供卡片信息查询、中文翻译、卡组构筑与测试等功能，专为 UA 玩家打造。
+          B站 <a href="https://space.bilibili.com/143360" target="_blank" rel="noopener" style="text-decoration:underline;color:inherit"><strong>LordMOS</strong></a> 有运营相关视频。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="page-divider" />
+
+  <!-- Agent Projects -->
+  <section class="page-section" id="agents">
+    <p class="section-label">Open Source · Vibe Coding</p>
+    <div class="agent-grid">
+
+      <div class="agent-card">
+        <div class="agent-logo">
+          <img src="assets/img/hero-scriptorium.svg" alt="Scriptorium" />
         </div>
-    </nav>
-
-    <!-- ===== Hero + About ===== -->
-    <header class="masthead" id="about">
-        <div class="container px-4 px-lg-5">
-            <div class="masthead-content text-center">
-                <h1>LordMOS</h1>
-                <p class="tagline">
-                    <strong>独立开发者</strong> &nbsp;·&nbsp; TCG 爱好者 &nbsp;·&nbsp; AI Agent 菜鸟<br />
-                    创业未半而中道崩崩崩崩 🫠
-                </p>
-                <div class="social-links">
-                    <a class="social-btn" href="https://github.com/lordmos" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i> GitHub
-                    </a>
-                    <a class="social-btn" href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">
-                        <i class="fab fa-zhihu"></i> 知乎
-                    </a>
-                    <a class="social-btn" href="https://space.bilibili.com/143360" target="_blank" rel="noopener">
-                        <i class="fab fa-bilibili"></i> B站
-                    </a>
-                </div>
-                <div class="identity-tags">
-                    <span class="identity-pill">🛠️ 独立开发者</span>
-                    <span class="identity-pill">📱 iOS 开发者</span>
-                    <span class="identity-pill">🃏 TCG 爱好者</span>
-                    <span class="identity-pill">🤖 AI Agent 菜鸟</span>
-                    <span class="identity-pill">💬 内容运营</span>
-                </div>
-            </div>
+        <div class="agent-name">Scriptorium</div>
+        <div class="agent-sub">源码阅读 · 多 Agent 书籍编写框架</div>
+        <p class="agent-desc">
+          "源码阅读系列"技术书籍的多 Agent 协作编写框架。让 AI 协同分工，自动完成技术书籍的章节撰写、校对与发布。
+        </p>
+        <div class="agent-tags">
+          <span class="agent-tag">Multi-Agent</span>
+          <span class="agent-tag">技术书籍</span>
+          <span class="agent-tag">VitePress</span>
         </div>
-    </header>
+        <a class="btn-gh" href="https://github.com/lordmos/scriptorium" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
 
-    <!-- ===== Mini Program ===== -->
-    <section id="miniprogram">
-        <div class="container px-4 px-lg-5">
-            <div class="section-header text-center">
-                <span class="section-tag">WeChat Mini Program</span>
-                <h2 class="section-title">微信小程序</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle mt-3">扫码即用，无需安装</p>
-            </div>
-            <div class="miniprogram-card">
-                <div class="miniprogram-qr">
-                    <img src="assets/img/ua-qrcode.png" alt="UA真选组小程序二维码" />
-                </div>
-                <div class="miniprogram-info">
-                    <div class="mp-title">UA 真选组</div>
-                    <div class="mp-sub">
-                        <i class="fab fa-weixin"></i> 微信小程序 · 运营中
-                    </div>
-                    <p class="mp-desc">
-                        Union Arena（UA）第三方卡片游戏社区小程序。提供卡片信息查询、中文翻译、卡组构筑与测试等功能，专为 Union Arena 玩家打造。<br />
-                        在 B站 <a href="https://space.bilibili.com/143360" target="_blank" rel="noopener"><strong>LordMOS</strong></a> 可找到运营相关视频。
-                    </p>
-                </div>
-            </div>
+      <div class="agent-card">
+        <div class="agent-logo">
+          <img src="assets/img/hero-meridian.svg" alt="Meridian" />
         </div>
-    </section>
-
-    <!-- ===== Agent Projects ===== -->
-    <section id="agents">
-        <div class="container px-4 px-lg-5">
-            <div class="section-header text-center">
-                <span class="section-tag">Vibe Coding · Open Source</span>
-                <h2 class="section-title">Agent 项目</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle mt-3">最近 Vibe 出来的两个开源 Agent 工具</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-
-                <!-- Scriptorium -->
-                <div class="col-md-6 col-lg-5">
-                    <div class="agent-card">
-                        <div class="agent-icon">
-                            <img src="assets/img/hero-scriptorium.svg" alt="Scriptorium" style="width:40px;height:40px;" />
-                        </div>
-                        <div class="agent-name">Scriptorium</div>
-                        <div class="agent-name-zh">源码阅读 · 多 Agent 书籍编写框架</div>
-                        <p class="agent-desc">
-                            "源码阅读系列"技术书籍的多 Agent 协作编写框架。让 AI 协同分工，自动完成技术书籍的章节撰写、校对与发布。
-                        </p>
-                        <div class="agent-tags">
-                            <span class="agent-tag">Multi-Agent</span>
-                            <span class="agent-tag">技术书籍</span>
-                            <span class="agent-tag">源码阅读</span>
-                            <span class="agent-tag">VitePress</span>
-                        </div>
-                        <a class="btn-github"
-                            href="https://github.com/lordmos/scriptorium"
-                            target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Meridian -->
-                <div class="col-md-6 col-lg-5">
-                    <div class="agent-card">
-                        <div class="agent-icon">
-                            <img src="assets/img/hero-meridian.svg" alt="Meridian" style="width:40px;height:40px;" />
-                        </div>
-                        <div class="agent-name">Meridian</div>
-                        <div class="agent-name-zh">开源项目运营工具包</div>
-                        <p class="agent-desc">
-                            可复用的开源 Agent 项目运营工具包。给定任何一个开源 Agent 项目，在一次 AI 会话里完成全套运营基础设施搭建：多语言文档、Logo、VitePress 文档站等。
-                        </p>
-                        <div class="agent-tags">
-                            <span class="agent-tag">Open Source</span>
-                            <span class="agent-tag">项目运营</span>
-                            <span class="agent-tag">i18n</span>
-                            <span class="agent-tag">VitePress</span>
-                        </div>
-                        <a class="btn-github"
-                            href="https://github.com/lordmos/meridian"
-                            target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="agent-name">Meridian</div>
+        <div class="agent-sub">开源项目运营工具包</div>
+        <p class="agent-desc">
+          可复用的开源 Agent 项目运营工具包。给定任何一个开源 Agent 项目，在一次 AI 会话里完成全套运营基础设施搭建。
+        </p>
+        <div class="agent-tags">
+          <span class="agent-tag">项目运营</span>
+          <span class="agent-tag">i18n</span>
+          <span class="agent-tag">VitePress</span>
         </div>
-    </section>
+        <a class="btn-gh" href="https://github.com/lordmos/meridian" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
 
-    <!-- ===== iOS Projects ===== -->
-    <section id="projects">
-        <div class="container px-4 px-lg-5">
-            <div class="section-header text-center">
-                <span class="section-tag">iOS Apps</span>
-                <h2 class="section-title">iOS 应用</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle mt-3">已上架 App Store 的独立应用</p>
-            </div>
-            <div class="row g-4">
+    </div>
+  </section>
 
-                <!-- Wewall -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <img class="app-icon" src="assets/img/icon-wewall.jpg" alt="唯沃壁纸图标" />
-                            <div>
-                                <span class="project-card-badge badge-ios">iOS</span>
-                                <div class="project-card-title">唯沃壁纸</div>
-                                <div class="project-card-subtitle">Wewall</div>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <p class="project-card-desc">
-                                由全球专业摄影师与模特提供作品的高清壁纸应用，基于 Pexels 精选内容，每日更新。
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <a class="btn-appstore"
-                                href="https://apps.apple.com/cn/app/id1492618122"
-                                target="_blank" rel="noopener">
-                                <i class="fab fa-apple"></i> App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <hr class="page-divider" />
 
-                <!-- Wesper -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <img class="app-icon" src="assets/img/icon-wesper.jpg" alt="微声白噪音图标" />
-                            <div>
-                                <span class="project-card-badge badge-ios">iOS</span>
-                                <div class="project-card-title">微声白噪音</div>
-                                <div class="project-card-subtitle">Wesper · WeTrack Studio</div>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <p class="project-card-desc">
-                                精心设计的环境音与白噪音应用，专注当下，放下手机，找回生活的节奏。
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <a class="btn-appstore"
-                                href="https://apps.apple.com/cn/app/id1492861857"
-                                target="_blank" rel="noopener">
-                                <i class="fab fa-apple"></i> App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <!-- iOS Apps -->
+  <section class="page-section" id="projects">
+    <p class="section-label">iOS Apps</p>
+    <div class="app-grid">
 
-                <!-- NFC小册 -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <img class="app-icon" src="assets/img/icon-nfc.jpg" alt="NFC小册图标" />
-                            <div>
-                                <span class="project-card-badge badge-ios">iOS</span>
-                                <div class="project-card-title">NFC 小册</div>
-                                <div class="project-card-subtitle">NFC Book · WeTrack Studio</div>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <p class="project-card-desc">
-                                一键管理你的 NFC 标签，写入、读取、分享，让物联网触手可及。
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <a class="btn-appstore"
-                                href="https://apps.apple.com/cn/app/id1551346700"
-                                target="_blank" rel="noopener">
-                                <i class="fab fa-apple"></i> App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      <div class="app-card">
+        <img class="app-icon" src="assets/img/icon-wewall.jpg" alt="唯沃壁纸" />
+        <div class="app-name">唯沃壁纸</div>
+        <div class="app-sub">Wewall</div>
+        <p class="app-desc">由全球专业摄影师与模特提供作品的高清壁纸，基于 Pexels 精选内容。</p>
+        <a class="btn-store" href="https://apps.apple.com/cn/app/id1492618122" target="_blank" rel="noopener">
+          <i class="fab fa-apple"></i> App Store
+        </a>
+      </div>
 
-                <!-- 文小印 -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-card-header">
-                            <img class="app-icon" src="assets/img/icon-printer.jpg" alt="文小印图标" />
-                            <div>
-                                <span class="project-card-badge badge-ios">iOS</span>
-                                <div class="project-card-title">文小印</div>
-                                <div class="project-card-subtitle">Little Printer</div>
-                            </div>
-                        </div>
-                        <div class="project-card-body">
-                            <p class="project-card-desc">
-                                掌上收银 · 外卖点菜 · 进销存管理 · 小票打印，连接蓝牙打印机，定制模版，灵活印。
-                            </p>
-                        </div>
-                        <div class="project-card-footer">
-                            <a class="btn-appstore"
-                                href="https://apps.apple.com/cn/app/id1554477295"
-                                target="_blank" rel="noopener">
-                                <i class="fab fa-apple"></i> App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      <div class="app-card">
+        <img class="app-icon" src="assets/img/icon-wesper.jpg" alt="微声白噪音" />
+        <div class="app-name">微声白噪音</div>
+        <div class="app-sub">Wesper · WeTrack Studio</div>
+        <p class="app-desc">精心设计的环境音与白噪音应用，专注当下，放下手机。</p>
+        <a class="btn-store" href="https://apps.apple.com/cn/app/id1492861857" target="_blank" rel="noopener">
+          <i class="fab fa-apple"></i> App Store
+        </a>
+      </div>
 
-            </div>
-        </div>
-    </section>
+      <div class="app-card">
+        <img class="app-icon" src="assets/img/icon-nfc.jpg" alt="NFC小册" />
+        <div class="app-name">NFC 小册</div>
+        <div class="app-sub">WeTrack Studio</div>
+        <p class="app-desc">一键管理你的 NFC 标签，写入、读取、分享，让物联网触手可及。</p>
+        <a class="btn-store" href="https://apps.apple.com/cn/app/id1551346700" target="_blank" rel="noopener">
+          <i class="fab fa-apple"></i> App Store
+        </a>
+      </div>
 
-    <!-- ===== Footer ===== -->
-    <footer>
-        <div class="container px-4 px-lg-5">
-            <div class="footer-social">
-                <a href="https://github.com/lordmos" target="_blank" rel="noopener" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener" title="知乎">
-                    <i class="fab fa-zhihu"></i>
-                </a>
-                <a href="https://space.bilibili.com/143360" target="_blank" rel="noopener" title="B站">
-                    <i class="fab fa-bilibili"></i>
-                </a>
-            </div>
-            <p class="footer-copy">
-                Copyright &copy; 2021–2026 lordmos.github.io &nbsp;·&nbsp;
-                <a href="/privacy" style="color:rgba(255,255,255,.35)">隐私政策</a>
-            </p>
-        </div>
-    </footer>
+      <div class="app-card">
+        <img class="app-icon" src="assets/img/icon-printer.jpg" alt="文小印" />
+        <div class="app-name">文小印</div>
+        <div class="app-sub">Little Printer</div>
+        <p class="app-desc">掌上收银 · 外卖点菜 · 进销存 · 蓝牙小票打印，定制模版灵活印。</p>
+        <a class="btn-store" href="https://apps.apple.com/cn/app/id1554477295" target="_blank" rel="noopener">
+          <i class="fab fa-apple"></i> App Store
+        </a>
+      </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </section>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.getElementById('mainNav');
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2021–2026 LordMOS</span>
+      <ul class="footer-nav">
+        <li><a href="https://github.com/lordmos" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">知乎</a></li>
+        <li><a href="https://space.bilibili.com/143360" target="_blank" rel="noopener">B站</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </footer>
 
-            const shrinkNavbar = () => {
-                if (window.scrollY === 0) {
-                    navbar.classList.remove('navbar-shrink');
-                } else {
-                    navbar.classList.add('navbar-shrink');
-                }
-            };
-
-            shrinkNavbar();
-            document.addEventListener('scroll', shrinkNavbar);
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', e => {
-                    const target = document.querySelector(anchor.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // Close mobile menu if open
-                        const toggler = document.querySelector('.navbar-toggler');
-                        const collapse = document.getElementById('navbarResponsive');
-                        if (collapse && collapse.classList.contains('show') &&
-                            getComputedStyle(toggler).display !== 'none') {
-                            toggler.click();
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+  <script>
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
+    });
+  </script>
 
 </body>
-
 </html>
