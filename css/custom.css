@@ -232,53 +232,34 @@ section { padding: 5rem 0; }
   font-weight: 300;
 }
 
-/* ===== About Section ===== */
-#about {
-  background: var(--white);
-}
-
+/* ===== Identity Pills ===== */
 .identity-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: .6rem;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 }
 
-.identity-card {
+.identity-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.15);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  text-align: center;
-  min-width: 140px;
-  transition: var(--transition);
-  backdrop-filter: blur(8px);
-}
-
-.identity-card:hover {
-  background: rgba(99,102,241,.2);
-  border-color: rgba(129,140,248,.5);
-  transform: translateY(-3px);
-}
-
-.identity-card .icon {
-  font-size: 1.6rem;
-  margin-bottom: .4rem;
-  display: block;
-}
-
-.identity-card .label {
-  font-weight: 600;
+  color: rgba(255,255,255,.8);
+  border-radius: 50px;
+  padding: .4rem 1rem;
   font-size: .85rem;
-  color: rgba(255,255,255,.9);
-  display: block;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
 }
 
-.identity-card .desc {
-  font-size: .75rem;
-  color: rgba(255,255,255,.5);
-  margin-top: .15rem;
+.identity-pill:hover {
+  background: rgba(99,102,241,.25);
+  border-color: rgba(129,140,248,.5);
+  color: #fff;
 }
 
 /* ===== Projects Section ===== */
