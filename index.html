@@ -25,11 +25,17 @@
 
 <body>
 
+  <!-- Skip Navigation -->
+  <a class="skip-nav" href="#main">跳转到主内容</a>
+
   <!-- Navbar -->
-  <nav id="mainNav">
+  <nav id="mainNav" aria-label="主导航">
     <div class="nav-inner">
       <a class="nav-brand" href="#">LordMOS</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="/blog-list.html">博客</a></li>
         <li><a href="#miniprogram">小程序</a></li>
         <li><a href="#agents">Agent 项目</a></li>
@@ -38,6 +44,8 @@
       </ul>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- Hero -->
   <section class="hero" id="about">
@@ -89,7 +97,7 @@
     <p class="section-label">WeChat Mini Program</p>
     <div class="mp-card">
       <div class="mp-qr">
-        <img src="assets/img/ua-qrcode.png" alt="UA真选组小程序二维码" />
+        <img src="assets/img/ua-qrcode.png" alt="UA真选组小程序二维码" loading="lazy" />
       </div>
       <div class="mp-body">
         <span class="mp-tag"><i class="fab fa-weixin"></i> 微信小程序</span>
@@ -112,7 +120,7 @@
 
       <a class="agent-card" href="https://lordmos.github.io/scriptorium/" target="_blank" rel="noopener">
         <div class="agent-logo">
-          <img src="assets/img/hero-scriptorium.svg" alt="Scriptorium" />
+          <img src="assets/img/hero-scriptorium.svg" alt="Scriptorium" loading="lazy" />
         </div>
         <div class="agent-name">Scriptorium</div>
         <div class="agent-sub">源码阅读 · 多 Agent 书籍编写框架</div>
@@ -129,7 +137,7 @@
 
       <a class="agent-card" href="https://lordmos.github.io/meridian/" target="_blank" rel="noopener">
         <div class="agent-logo">
-          <img src="assets/img/hero-meridian.svg" alt="Meridian" />
+          <img src="assets/img/hero-meridian.svg" alt="Meridian" loading="lazy" />
         </div>
         <div class="agent-name">Meridian</div>
         <div class="agent-sub">开源项目运营工具包</div>
@@ -146,7 +154,7 @@
 
       <a class="agent-card" href="https://lordmos.github.io/copilot-island/" target="_blank" rel="noopener">
         <div class="agent-logo">
-          <img src="assets/img/hero-copilot-island.svg" alt="Copilot Island" />
+          <img src="assets/img/hero-copilot-island.svg" alt="Copilot Island" loading="lazy" />
         </div>
         <div class="agent-name">Copilot Island</div>
         <div class="agent-sub">macOS 刘海屏 · Copilot CLI 监控</div>
@@ -163,7 +171,7 @@
 
       <a class="agent-card" href="https://lordmos.github.io/dev-crew/" target="_blank" rel="noopener">
         <div class="agent-logo">
-          <img src="assets/img/dev-crew.png" alt="DevCrew" />
+          <img src="assets/img/dev-crew.png" alt="DevCrew" loading="lazy" />
         </div>
         <div class="agent-name">DevCrew</div>
         <div class="agent-sub">AI 团队协作协议</div>
@@ -189,7 +197,7 @@
     <div class="app-grid">
 
       <a class="app-card" href="https://apps.apple.com/cn/app/id1492618122" target="_blank" rel="noopener">
-        <img class="app-icon" src="assets/img/icon-wewall.jpg" alt="唯沃壁纸" />
+        <img class="app-icon" src="assets/img/icon-wewall.jpg" alt="唯沃壁纸" loading="lazy" />
         <div class="app-name">唯沃壁纸</div>
         <div class="app-sub">Wewall</div>
         <p class="app-desc">由全球专业摄影师与模特提供作品的高清壁纸，基于 Pexels 精选内容。</p>
@@ -197,7 +205,7 @@
       </a>
 
       <a class="app-card" href="https://apps.apple.com/cn/app/id1492861857" target="_blank" rel="noopener">
-        <img class="app-icon" src="assets/img/icon-wesper.jpg" alt="微声白噪音" />
+        <img class="app-icon" src="assets/img/icon-wesper.jpg" alt="微声白噪音" loading="lazy" />
         <div class="app-name">微声白噪音</div>
         <div class="app-sub">Wesper · WeTrack Studio</div>
         <p class="app-desc">精心设计的环境音与白噪音应用，专注当下，放下手机。</p>
@@ -205,7 +213,7 @@
       </a>
 
       <a class="app-card" href="https://apps.apple.com/cn/app/id1551346700" target="_blank" rel="noopener">
-        <img class="app-icon" src="assets/img/icon-nfc.jpg" alt="NFC小册" />
+        <img class="app-icon" src="assets/img/icon-nfc.jpg" alt="NFC小册" loading="lazy" />
         <div class="app-name">NFC 小册</div>
         <div class="app-sub">WeTrack Studio</div>
         <p class="app-desc">一键管理你的 NFC 标签，写入、读取、分享，让物联网触手可及。</p>
@@ -213,7 +221,7 @@
       </a>
 
       <a class="app-card" href="https://apps.apple.com/cn/app/id1554477295" target="_blank" rel="noopener">
-        <img class="app-icon" src="assets/img/icon-printer.jpg" alt="文小印" />
+        <img class="app-icon" src="assets/img/icon-printer.jpg" alt="文小印" loading="lazy" />
         <div class="app-name">文小印</div>
         <div class="app-sub">Little Printer</div>
         <p class="app-desc">掌上收银 · 外卖点菜 · 进销存 · 蓝牙小票打印，定制模版灵活印。</p>
@@ -222,6 +230,8 @@
 
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -239,7 +249,16 @@
   <script>
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
-      nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
+      nav.style.borderBottomColor = window.scrollY > 10 ? 'var(--nav-scroll-border)' : 'transparent';
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
     });
 
     // Load latest 5 blog posts for homepage

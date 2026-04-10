@@ -25,11 +25,17 @@
 
 <body>
 
+  <!-- Skip Navigation -->
+  <a class="skip-nav" href="#main">跳转到主内容</a>
+
   <!-- Navbar -->
-  <nav id="mainNav">
+  <nav id="mainNav" aria-label="主导航">
     <div class="nav-inner">
       <a class="nav-brand" href="/">LordMOS</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="navLinks">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="/blog-list.html">博客</a></li>
         <li><a href="/#miniprogram">小程序</a></li>
         <li><a href="/#agents">Agent 项目</a></li>
@@ -39,6 +45,7 @@
   </nav>
 
   <!-- Blog Article -->
+  <main id="main">
   <article class="blog-article" id="blogArticle">
     <div class="blog-header">
       <a class="blog-back" href="/blog-list.html"><i class="fas fa-arrow-left"></i> 返回博客</a>
@@ -52,6 +59,7 @@
       </div>
     </div>
   </article>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -70,7 +78,16 @@
     // Navbar scroll effect
     const nav = document.getElementById('mainNav');
     window.addEventListener('scroll', () => {
-      nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
+      nav.style.borderBottomColor = window.scrollY > 10 ? 'var(--nav-scroll-border)' : 'transparent';
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
     });
 
     // Parse query param

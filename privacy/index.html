@@ -1,9 +1,67 @@
-<ul>
-	<li><a href="./en.html">English</a></li>
-	<li><a href="./zh.html">简体中文</a></li>
-	<li><a href="./ja.html">日本語</a></li>
-	<li><a href="./es.html">Español</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy Policy — LordMOS" />
+  <title>Privacy Policy — LordMOS</title>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <link href="../css/custom.css" rel="stylesheet" />
+  <style>
+    .privacy-page { max-width: var(--container); margin: 0 auto; padding: 8rem 1.5rem 4rem; }
+    .privacy-page h1 { font-size: 1.6rem; font-weight: 700; margin: 2.5rem 0 1rem; color: var(--fg); }
+    .privacy-page h1:first-child { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -1.5px; margin-top: 0; }
+    .privacy-page h2 { font-size: 1.3rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--fg); }
+    .privacy-page h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; color: var(--fg); }
+    .privacy-page p { margin-bottom: 1rem; color: var(--fg-2); line-height: 1.7; font-size: 0.95rem; }
+    .privacy-page ul { margin: 0.75rem 0 1.25rem; padding-left: 1.5rem; color: var(--fg-2); font-size: 0.95rem; line-height: 1.7; }
+    .privacy-page li { margin-bottom: 0.35rem; }
+    .privacy-lang { display: flex; gap: 1rem; list-style: none; padding: 0; margin-bottom: 2rem; }
+    .privacy-lang a { font-size: 0.85rem; color: var(--fg-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.3rem 0.75rem; transition: var(--transition); }
+    .privacy-lang a:hover { border-color: var(--fg); color: var(--fg); }
+    @media (max-width: 640px) { .privacy-page { padding: 6.5rem 1.25rem 3rem; } }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-nav" href="#main">Skip to content</a>
+
+  <nav id="mainNav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">LordMOS</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/blog-list.html">博客</a></li>
+        <li><a href="/#miniprogram">小程序</a></li>
+        <li><a href="/#agents">Agent 项目</a></li>
+        <li><a href="/#projects">iOS 应用</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+  <div class="privacy-page">
+    <ul class="privacy-lang">
+      <li><a href="./en.html">English</a></li>
+      <li><a href="./zh.html">简体中文</a></li>
+      <li><a href="./ja.html">日本語</a></li>
+      <li><a href="./es.html">Español</a></li>
+    </ul>
 
 
 <h1>Privacy Policy</h1>
@@ -208,3 +266,35 @@
 <ul>
 	<li>By email: xanogayu@msn.com</li>
 </ul>
+  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2021–2026 LordMOS</span>
+      <ul class="footer-nav">
+        <li><a href="https://github.com/lordmos" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">知乎</a></li>
+        <li><a href="https://space.bilibili.com/143360" target="_blank" rel="noopener">B站</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderBottomColor = window.scrollY > 10 ? 'var(--nav-scroll-border)' : 'transparent';
+    });
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      navToggle.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+    });
+  </script>
+
+</body>
+
+</html>
