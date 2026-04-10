@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LordMOS Blog" />
+  <title>Blog — LordMOS</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <link href="css/custom.css" rel="stylesheet" />
+  <link href="css/blog.css" rel="stylesheet" />
+  <!-- Marked.js for Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">LordMOS</a>
+      <ul class="nav-links">
+        <li><a href="/blog-list.html">博客</a></li>
+        <li><a href="/#miniprogram">小程序</a></li>
+        <li><a href="/#agents">Agent 项目</a></li>
+        <li><a href="/#projects">iOS 应用</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Blog Article -->
+  <article class="blog-article" id="blogArticle">
+    <div class="blog-header">
+      <a class="blog-back" href="/blog-list.html"><i class="fas fa-arrow-left"></i> 返回博客</a>
+      <h1 class="blog-title" id="blogTitle">加载中...</h1>
+      <div class="blog-meta" id="blogMeta"></div>
+    </div>
+    <div class="blog-body" id="blogBody">
+      <div class="blog-loading">
+        <div class="blog-loading-spinner"></div>
+        <span>正在加载文章...</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2021–2026 LordMOS</span>
+      <ul class="footer-nav">
+        <li><a href="https://github.com/lordmos" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">知乎</a></li>
+        <li><a href="https://space.bilibili.com/143360" target="_blank" rel="noopener">B站</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
+    });
+
+    // Parse query param
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    // Load and render blog post
+    async function loadBlogPost() {
+      const postFile = getQueryParam('post');
+      if (!postFile) {
+        document.getElementById('blogTitle').textContent = '文章未找到';
+        document.getElementById('blogBody').innerHTML = '<p style="color:var(--fg-2)">请从博客列表选择一篇文章。</p>';
+        return;
+      }
+
+      try {
+        const response = await fetch(`blogs/${postFile}`);
+        if (!response.ok) throw new Error('Not found');
+        const markdown = await response.text();
+
+        // Extract title from first # heading
+        const titleMatch = markdown.match(/^#\s+(.+)$/m);
+        const subtitleMatch = markdown.match(/^##\s+(.+)$/m);
+        const dateMatch = markdown.match(/^###\s+(\d{4}年\d{1,2}月\d{1,2}日)$/m);
+
+        // Extract date from filename (format: YYYY_MM_DD-title.md)
+        const fileDateMatch = postFile.match(/^(\d{4})_(\d{2})_(\d{2})/);
+        let dateStr = '';
+        if (dateMatch) {
+          dateStr = dateMatch[1];
+        } else if (fileDateMatch) {
+          dateStr = `${fileDateMatch[1]}年${parseInt(fileDateMatch[2])}月${parseInt(fileDateMatch[3])}日`;
+        }
+
+        const title = titleMatch ? titleMatch[1] : '无标题';
+        const subtitle = subtitleMatch ? subtitleMatch[1] : '';
+
+        document.getElementById('blogTitle').textContent = title;
+        document.title = `${title} — LordMOS`;
+
+        // Build meta line
+        const metaParts = [];
+        if (dateStr) metaParts.push(`<span class="blog-meta-date"><i class="far fa-calendar-alt"></i> ${dateStr}</span>`);
+        if (subtitle) metaParts.push(`<span class="blog-meta-subtitle">${subtitle}</span>`);
+        document.getElementById('blogMeta').innerHTML = metaParts.join('');
+
+        // Remove title, subtitle, and date lines from markdown before rendering
+        let bodyMarkdown = markdown;
+        if (titleMatch) bodyMarkdown = bodyMarkdown.replace(/^#\s+.+$/m, '');
+        if (subtitleMatch) bodyMarkdown = bodyMarkdown.replace(/^##\s+.+$/m, '');
+        if (dateMatch) bodyMarkdown = bodyMarkdown.replace(/^###\s+\d{4}年\d{1,2}月\d{1,2}日$/m, '');
+
+        // Render markdown
+        document.getElementById('blogBody').innerHTML = marked.parse(bodyMarkdown.trim());
+
+      } catch (e) {
+        document.getElementById('blogTitle').textContent = '文章未找到';
+        document.getElementById('blogBody').innerHTML = `<p style="color:var(--fg-2)">无法加载文章 "${postFile}"。</p>`;
+      }
+    }
+
+    loadBlogPost();
+  </script>
+
+</body>
+
+</html>

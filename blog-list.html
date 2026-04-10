@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LordMOS 博客文章列表" />
+  <title>博客 — LordMOS</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <link href="css/custom.css" rel="stylesheet" />
+  <link href="css/blog.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="/">LordMOS</a>
+      <ul class="nav-links">
+        <li><a href="/blog-list.html" class="nav-active">博客</a></li>
+        <li><a href="/#miniprogram">小程序</a></li>
+        <li><a href="/#agents">Agent 项目</a></li>
+        <li><a href="/#projects">iOS 应用</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Blog List -->
+  <section class="blog-list-page">
+    <div class="blog-list-header">
+      <h1 class="blog-list-title">博客</h1>
+      <p class="blog-list-desc">随笔、技术思考与日常碎碎念。</p>
+    </div>
+    <div class="blog-grid" id="blogGrid">
+      <div class="blog-loading">
+        <div class="blog-loading-spinner"></div>
+        <span>加载博客列表...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2021–2026 LordMOS</span>
+      <ul class="footer-nav">
+        <li><a href="https://github.com/lordmos" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.zhihu.com/people/lordmos" target="_blank" rel="noopener">知乎</a></li>
+        <li><a href="https://space.bilibili.com/143360" target="_blank" rel="noopener">B站</a></li>
+        <li><a href="/privacy">隐私政策</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
+    });
+
+    // Load full blog list
+    (async function loadBlogList() {
+      const grid = document.getElementById('blogGrid');
+      try {
+        const res = await fetch('blogs/index.json');
+        if (!res.ok) throw new Error('Failed to load');
+        const posts = await res.json();
+
+        // Sort by date descending
+        posts.sort((a, b) => b.date.localeCompare(a.date));
+
+        if (posts.length === 0) {
+          grid.innerHTML = '<p class="blog-empty">暂无博客文章。</p>';
+          return;
+        }
+
+        grid.innerHTML = posts.map(post => {
+          const dateObj = new Date(post.date + 'T00:00:00');
+          const dateStr = `${dateObj.getFullYear()}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${String(dateObj.getDate()).padStart(2,'0')}`;
+          return `
+            <a class="blog-card" href="blog.html?post=${encodeURIComponent(post.file)}">
+              <span class="blog-card-date">${dateStr}</span>
+              <div class="blog-card-content">
+                <div class="blog-card-title">${post.title}</div>
+                ${post.subtitle ? `<div class="blog-card-subtitle">${post.subtitle}</div>` : ''}
+              </div>
+              <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </a>`;
+        }).join('');
+
+      } catch (e) {
+        grid.innerHTML = '<p class="blog-empty">加载失败，请稍后重试。</p>';
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

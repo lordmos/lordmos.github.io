@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     crossorigin="anonymous" />
   <link href="css/custom.css" rel="stylesheet" />
+  <link href="css/blog.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -29,6 +30,7 @@
     <div class="nav-inner">
       <a class="nav-brand" href="#">LordMOS</a>
       <ul class="nav-links">
+        <li><a href="/blog-list.html">博客</a></li>
         <li><a href="#miniprogram">小程序</a></li>
         <li><a href="#agents">Agent 项目</a></li>
         <li><a href="#projects">iOS 应用</a></li>
@@ -62,6 +64,22 @@
         <i class="fab fa-bilibili"></i> B站
       </a>
     </div>
+  </section>
+
+  <hr class="page-divider" />
+
+  <!-- Blog -->
+  <section class="page-section" id="blog">
+    <p class="section-label">Blog · 随笔</p>
+    <div class="blog-grid" id="blogGrid">
+      <div class="blog-loading">
+        <div class="blog-loading-spinner"></div>
+        <span>加载博客列表...</span>
+      </div>
+    </div>
+    <a class="blog-view-all" id="blogViewAll" href="/blog-list.html" style="display:none">
+      查看更多 <i class="fas fa-arrow-right"></i>
+    </a>
   </section>
 
   <hr class="page-divider" />
@@ -223,6 +241,43 @@
     window.addEventListener('scroll', () => {
       nav.style.borderBottomColor = window.scrollY > 10 ? '#e5e5e5' : 'transparent';
     });
+
+    // Load latest 5 blog posts for homepage
+    (async function loadBlogList() {
+      const grid = document.getElementById('blogGrid');
+      try {
+        const res = await fetch('blogs/index.json');
+        if (!res.ok) throw new Error('Failed to load');
+        const posts = await res.json();
+
+        // Sort by date descending
+        posts.sort((a, b) => b.date.localeCompare(a.date));
+
+        // Show only latest 5
+        const latest = posts.slice(0, 5);
+
+        grid.innerHTML = latest.map(post => {
+          const dateObj = new Date(post.date + 'T00:00:00');
+          const dateStr = `${dateObj.getFullYear()}-${String(dateObj.getMonth()+1).padStart(2,'0')}-${String(dateObj.getDate()).padStart(2,'0')}`;
+          return `
+            <a class="blog-card" href="blog.html?post=${encodeURIComponent(post.file)}">
+              <span class="blog-card-date">${dateStr}</span>
+              <div class="blog-card-content">
+                <div class="blog-card-title">${post.title}</div>
+                ${post.subtitle ? `<div class="blog-card-subtitle">${post.subtitle}</div>` : ''}
+              </div>
+              <span class="blog-card-arrow"><i class="fas fa-arrow-right"></i></span>
+            </a>`;
+        }).join('');
+
+        // Show "查看更多" link if there are more than 5 posts, or always show it as entry to full list
+        const viewAllEl = document.getElementById('blogViewAll');
+        if (viewAllEl) viewAllEl.style.display = 'inline-flex';
+
+      } catch (e) {
+        grid.innerHTML = '<p style="color:var(--fg-3);font-size:0.9rem">暂无博客文章。</p>';
+      }
+    })();
   </script>
 
 </body>
